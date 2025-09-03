@@ -9,6 +9,7 @@ const Team = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
  const teamMembers = [
+  
   {
     id: 1,
     name: "Saravana Kumar S",
@@ -18,6 +19,16 @@ const Team = () => {
     bio: "Leading the team with vision and dedication, fostering a vibrant cultural environment.",
     skills: ["Leadership", "Event Planning"],
     isFounder: true
+  },
+   {
+    id: 25,
+    name: "Sanjana Kori",
+    role: "Acting Vice President",
+    category: "management",
+    image: "https://www.dropbox.com/scl/fi/nbykiqpk9fc3h2x86ykyr/Sanjana_non_tech_lead.png?rlkey=pai06plr1td9nl7els89dxn1g&st=h941soqq&raw=1",
+    bio: "Supporting the president and coordinating various initiatives to ensure smooth operations.",
+    skills: ["Coordination", "Communication"],
+    isFounder: false
   },
   {
     id: 2,
@@ -78,16 +89,6 @@ const Team = () => {
     bio: "Ensuring effective scheduling and smooth planning for all activities.",
     skills: ["Scheduling", "Planning"],
     isFounder: false
-  },
-  {
-    id: 7,
-    name: "Charan Gowda DN",
-    role: "Acting Secretary and Co-Treasurer",
-    category: ["founders", "management"],
-    image: "https://www.dropbox.com/scl/fi/2vqqyljs8fozusjh6v4h9/Screenshot-2025-07-21-153753.png?rlkey=lcnbdu83md292c9r507us79a8&st=pyu4l17j&raw=1",
-    bio: "Assisting in managing administrative and financial tasks for the team.",
-    skills: ["Finance", "Administration"],
-    isFounder: true
   },
   {
     id: 8,
@@ -157,7 +158,8 @@ const Team = () => {
     image: "https://www.dropbox.com/scl/fi/w7vhzizdevyxaexdqgonm/jayanth_event_team_colead.jpg?rlkey=ilbiuj1zipq8x3gfudmc27cev&st=wqpdu0a3&raw=1",
     bio: "Collaborating on planning and executing memorable cultural events.",
     skills: ["Event Planning", "Teamwork"],
-    isFounder: false
+    isFounder: true, // Updated to true
+     
   },
   {
     id: 12,
@@ -289,16 +291,7 @@ const Team = () => {
     skills: ["Public Relations", "Partnerships"],
     isFounder: false
   },
-  {
-    id: 25,
-    name: "Sanjana Kori",
-    role: "Acting Vice President",
-    category: "management",
-    image: "https://www.dropbox.com/scl/fi/nbykiqpk9fc3h2x86ykyr/Sanjana_non_tech_lead.png?rlkey=pai06plr1td9nl7els89dxn1g&st=h941soqq&raw=1",
-    bio: "Supporting the president and coordinating various initiatives to ensure smooth operations.",
-    skills: ["Coordination", "Communication"],
-    isFounder: false
-  },
+ 
 ];
 
   const categories = [
