@@ -6,9 +6,9 @@ import Navigation from "@/components/Navigation";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 const Team = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("all");
 
-  const teamMembers = [
+  const teamMembers = [
     {
       id: 1,
       name: "Saravana Kumar S",
@@ -289,162 +289,192 @@ const Team = () => {
       skills: ["Public Relations", "Partnerships"],
       isFounder: false
     },
-  ];
+    {
+      id: 26,
+      name: "Krishnaveni TS",
+      role: "Human Resources Team",
+      category: "management",
+      image: "https://www.dropbox.com/scl/fi/7dw89h7i7ydhv53edc6wd/Screenshot-2025-09-04-204725.png?rlkey=xufd28vs4web5h9l9vp9sborb&st=ka84wy5n&raw=1",
+      bio: "Assisting in human resources activities and team coordination.",
+      skills: ["HR", "Recruitment"],
+      isFounder: false
+    },
+    {
+      id: 27,
+      name: "Raksha Vindhya",
+      role: "Human Resources Team",
+      category: "management",
+      image: "https://www.dropbox.com/scl/fi/rgz58g6ki22m4zp2cfbr3/Screenshot-2025-09-04-205606.png?rlkey=3j4fc1iwd6anwpj06cdnozgr0&st=igka5hzv&raw=1",
+      bio: "Managing human resources and employee engagement.",
+      skills: ["HR", "Employee Relations"],
+      isFounder: false
+    },
+    {
+      id: 28,
+      name: "Ganavi",
+      role: "Human Resources Team",
+      category: "management",
+      image: "https://www.dropbox.com/scl/fi/sz8dy6ergsdsdhv1wh8o0/Screenshot-2025-09-04-204951.png?rlkey=ykpncyknxu8lhiaw7vo4sqr1x&st=x4za19a8&raw=1",
+      bio: "Assisting in human resources functions and support.",
+      skills: ["HR", "Support"],
+      isFounder: false
+    },
+];
 
-  const categories = [
-    { id: "all", name: "All Members", icon: "👥" },
-    { id: "leadership", name: "Leadership", icon: "👑" },
-    { id: "technical", name: "Technical", icon: "💻" },
-    { id: "event_and_design", name: "Event & Design", icon: "🎨" },
-    { id: "management", name: "Management", icon: "📊" },
-  ];
+ const categories = [
+    { id: "all", name: "All Members", icon: "👥" },
+    { id: "leadership", name: "Leadership", icon: "👑" },
+    { id: "technical", name: "Technical", icon: "💻" },
+    { id: "event_and_design", name: "Event & Design", icon: "🎨" },
+    { id: "management", name: "Management", icon: "📊" },
+  ];
 
-  const filteredMembers = activeCategory === "all" ?
-    teamMembers :
-    teamMembers.filter(member =>
-      Array.isArray(member.category) ?
-      member.category.includes(activeCategory) :
-      member.category === activeCategory
-    );
+  const filteredMembers = activeCategory === "all" ?
+    teamMembers :
+    teamMembers.filter(member =>
+      Array.isArray(member.category) ?
+      member.category.includes(activeCategory) :
+      member.category === activeCategory
+    );
 
-  const leaders = teamMembers.filter(member => member.isFounder);
+  const leaders = teamMembers.filter(member => member.isFounder);
 
-  return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      {/* Hero Section */}
-      <section className="pt-28 pb-16 px-4 text-center bg-gradient-to-br from-background via-muted/40 to-background/80 animate-fade-in">
-        <div className="max-w-4xl mx-auto">
-          <div className="backdrop-blur-lg bg-background/80 rounded-3xl shadow-2xl border border-primary/20 px-6 py-10 animate-fade-in">
-            <h1 className="text-6xl font-bold text-electric mb-6 animate-slide-in-up">
-              Our <span className="text-cyber">Team</span>
-            </h1>
-            <p className="text-xl text-muted-foreground animate-fade-in">
-              Meet the team working on and behind the scenes at VITKULT.
-              Passionately minds, Creative thinkers and Cultural trailblazers who
-              turn dreams into reality!
-            </p>
-          </div>
-        </div>
-      </section>
-      {/* Leadership Section */}
-      <section className="py-16 px-4 animate-fade-in">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-neon mb-12 animate-fade-in">
-            🏆 Leadership
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {leaders.map((member, index) => (
-              <Card
-                key={member.id}
-                className="card-hologram p-6 group perspective-1000 animate-slide-in-up"
-                style={{
-                  animationDelay: `${index * 150}ms`
-                }}
-              >
-                <div className="preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
-                  {/* Member Image */}
-                  <div className="relative mb-6">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-gradient-electric p-1 animate-bounce-in">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full rounded-full object-cover"
-                      />
-                    </div>
-                    <div className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs px-2 py-1 rounded-full font-bold animate-fade-in">
-                      LEADER
-                    </div>
-                  </div>
-                  {/* Member Info */}
-                  <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold text-foreground mb-1 animate-fade-in">{member.name}</h3>
-                    <p className="text-primary font-semibold mb-2 animate-fade-in">{member.role}</p>
-                  </div>
-                  {/* Bio */}
-                  <p className="text-sm text-muted-foreground text-center mb-4 leading-relaxed animate-fade-in">
-                    {member.bio}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Team Categories Filter */}
-      <section className="py-8 px-4 animate-fade-in">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category, i) => (
-              <Button
-                key={category.id}
-                variant={activeCategory === category.id ? "gaming" : "outline"}
-                onClick={() => setActiveCategory(category.id)}
-                className={`transition-all duration-300 animate-bounce-in ${activeCategory === category.id ? 'shadow-electric' : ''}`}
-                style={{
-                  animationDelay: `${i * 80}ms`
-                }}
-              >
-                <span className="mr-2">{category.icon}</span>
-                {category.name}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Team Members Grid */}
-      <section className="py-16 px-4 animate-fade-in">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredMembers.map((member, index) => (
-              <Card
-                key={member.id}
-                className="card-glow p-6 group hover:scale-105 transition-all duration-500 animate-slide-in-up"
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
-              >
-                {/* Member Image */}
-                <div className="relative mb-4">
-                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-cyber p-1 animate-bounce-in">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full rounded-full object-cover"
-                    />
-                  </div>
-                  {member.isFounder && (
-                    <Award className="absolute -top-1 -right-1 h-6 w-6 text-accent animate-fade-in" />
-                  )}
-                </div>
-                {/* Member Info */}
-                <div className="text-center mb-4">
-                  <h3 className="text-lg font-bold text-foreground mb-1 animate-fade-in">{member.name}</h3>
-                  <p className="text-primary text-sm font-semibold mb-1 animate-fade-in">{member.role}</p>
-                </div>
-                {/* Skills */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-1 justify-center">
-                    {member.skills.slice(0, 3).map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full animate-fade-in"
-                        style={{
-                          animationDelay: `${skillIndex * 50}ms`
-                        }}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      {/* Hero Section */}
+      <section className="pt-28 pb-16 px-4 text-center bg-gradient-to-br from-background via-muted/40 to-background/80 animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <div className="backdrop-blur-lg bg-background/80 rounded-3xl shadow-2xl border border-primary/20 px-6 py-10 animate-fade-in">
+            <h1 className="text-6xl font-bold text-electric mb-6 animate-slide-in-up">
+              Our <span className="text-cyber">Team</span>
+            </h1>
+            <p className="text-xl text-muted-foreground animate-fade-in">
+              Meet the team working on and behind the scenes at VITKULT.
+              Passionately minds, Creative thinkers and Cultural trailblazers who
+              turn dreams into reality!
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Leadership Section */}
+      <section className="py-16 px-4 animate-fade-in">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-neon mb-12 animate-fade-in">
+            🏆 Leadership
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {leaders.map((member, index) => (
+              <Card
+                key={member.id}
+                className="card-hologram p-6 group perspective-1000 animate-slide-in-up"
+                style={{
+                  animationDelay: `${index * 150}ms`
+                }}
+              >
+                <div className="preserve-3d group-hover:rotate-y-12 transition-transform duration-700">
+                  {/* Member Image */}
+                  <div className="relative mb-6">
+                    <div className="w-24 h-24 mx-auto rounded-full bg-gradient-electric p-1 animate-bounce-in">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full rounded-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs px-2 py-1 rounded-full font-bold animate-fade-in">
+                      LEADER
+                    </div>
+                  </div>
+                  {/* Member Info */}
+                  <div className="text-center mb-4">
+                    <h3 className="text-xl font-bold text-foreground mb-1 animate-fade-in">{member.name}</h3>
+                    <p className="text-primary font-semibold mb-2 animate-fade-in">{member.role}</p>
+                  </div>
+                  {/* Bio */}
+                  <p className="text-sm text-muted-foreground text-center mb-4 leading-relaxed animate-fade-in">
+                    {member.bio}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Team Categories Filter */}
+      <section className="py-8 px-4 animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((category, i) => (
+              <Button
+                key={category.id}
+                variant={activeCategory === category.id ? "gaming" : "outline"}
+                onClick={() => setActiveCategory(category.id)}
+                className={`transition-all duration-300 animate-bounce-in ${activeCategory === category.id ? 'shadow-electric' : ''}`}
+                style={{
+                  animationDelay: `${i * 80}ms`
+                }}
+              >
+                <span className="mr-2">{category.icon}</span>
+                {category.name}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Team Members Grid */}
+      <section className="py-16 px-4 animate-fade-in">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredMembers.map((member, index) => (
+              <Card
+                key={member.id}
+                className="card-glow p-6 group hover:scale-105 transition-all duration-500 animate-slide-in-up"
+                style={{
+                  animationDelay: `${index * 100}ms`
+                }}
+              >
+                {/* Member Image */}
+                <div className="relative mb-4">
+                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-cyber p-1 animate-bounce-in">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  {member.isFounder && (
+                    <Award className="absolute -top-1 -right-1 h-6 w-6 text-accent animate-fade-in" />
+                  )}
+                </div>
+                {/* Member Info */}
+                <div className="text-center mb-4">
+                  <h3 className="text-lg font-bold text-foreground mb-1 animate-fade-in">{member.name}</h3>
+                  <p className="text-primary text-sm font-semibold mb-1 animate-fade-in">{member.role}</p>
+                </div>
+                {/* Skills */}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-1 justify-center">
+                    {member.skills.slice(0, 3).map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full animate-fade-in"
+                        style={{
+                          animationDelay: `${skillIndex * 50}ms`
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Team;
